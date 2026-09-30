@@ -1,0 +1,269 @@
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.background-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+}
+
+.background-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.content-overlay {
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 30px 6%;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.navigation-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-items a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.navigation-items a.active {
+  color: #f15a29;
+}
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.services-section,
+.team-section,
+.projects-section,
+.clients-section,
+.home-section {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home-section {
+  position: relative;
+  min-height: calc(100vh - 100px);
+  padding: 5rem 6%;
+  box-sizing: border-box;
+}
+
+.home-content {
+  position: relative;
+  z-index: 5;
+
+  max-width: 600px;
+
+  margin-left: auto;
+  margin-right: 8%;
+  margin-top: 4rem;
+}
+
+.content-text-home {
+  width: 100%;
+  max-width: 500px;
+
+  color: black;
+  font-size: clamp(38px, 4vw, 56px);
+  line-height: 1.1;
+
+  font-family: Rubik, sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-malesuada-sed-ipsum-ut-quam-volutpat-tortor {
+  width: 100%;
+  max-width: 544px;
+  height: auto;
+}
+
+.loremipsumdolorsitametconsecteturadipiscingelitmalesuadasedipsumutquamvolutpattortor_span {
+  color: #2c2c2c;
+  font-size: 18px;
+  line-height: 1.5;
+
+  font-family: Rubik, sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+/* =========================================================
+   HOME BOTTOM ASSETS
+========================================================= */
+
+.home-asset-bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  height: auto;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+.home-asset-bottom-left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  height: auto;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =========================================================
+   MOBILE
+   Below 768px
+========================================================= */
+
+@media (max-width: 767px) {
+  .page-container {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* -----------------------------------------
+     Header
+  ----------------------------------------- */
+
+  .content-overlay {
+    position: relative;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 20px 15px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .navigation-items {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    gap: 12px 18px;
+  }
+
+  .navigation-items a {
+    font-size: 14px;
+  }
+
+  /* -----------------------------------------
+     Home
+  ----------------------------------------- */
+
+  .home-section {
+    min-height: 100vh;
+
+    padding: 3rem 1.25rem 12rem;
+
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .home-content {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 2rem 0 0;
+
+    text-align: left;
+  }
+
+  .content-text-home {
+    width: 100%;
+
+    font-size: clamp(34px, 10vw, 48px);
+    line-height: 1.1;
+  }
+
+  .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-malesuada-sed-ipsum-ut-quam-volutpat-tortor {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .loremipsumdolorsitametconsecteturadipiscingelitmalesuadasedipsumutquamvolutpattortor_span {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Bottom assets */
+
+  .home-asset-bottom-right {
+    width: 45vw;
+  }
+}
+.services-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
