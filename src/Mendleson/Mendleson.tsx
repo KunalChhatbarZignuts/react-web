@@ -32,9 +32,12 @@ function Mendleson() {
             <a href="#services">Services</a>
           </li>
 
-          <li>
-            <a href="#projects">Projects</a>
+          {/* <li>
+            <a href="#team">Team</a>
           </li>
+          <li>
+            <a href="#clients">Clients</a>
+          </li> */}
 
           <li>
             <a href="#contact">Contact Us</a>
@@ -70,11 +73,12 @@ function Mendleson() {
 
       <Services />
 
-      <section id="team" className="team-section" />
+      {/* <section id="team" className="team-section" /> */}
 
-      <section id="projects" className="projects-section" />
+      {/* <section id="projects" className="projects-section" /> */}
+      {/* <section id="clients" className="clients-section" /> */}
 
-      <section id="clients" className="clients-section" />
+      {/* <section id="contact" className="clients-section" /> */}
       <Footer />
     </div>
   );

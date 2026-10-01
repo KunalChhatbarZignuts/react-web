@@ -1,8 +1,13 @@
+/* =========================================================
+   SERVICES SECTION
+========================================================= */
+
 .services-section {
   width: 100%;
   position: relative;
   z-index: 1;
   padding: 60px 0;
+  overflow: hidden;
 }
 
 .services-container {
@@ -11,7 +16,10 @@
   margin: 0 auto;
 }
 
-/* SERVICES */
+/* =========================================================
+   SERVICES TITLE
+========================================================= */
+
 .services-title {
   justify-self: center;
 }
@@ -23,7 +31,9 @@
   font-weight: 500;
 }
 
-/* ENGAGEMENT */
+/* =========================================================
+   COMMON SERVICE ITEM
+========================================================= */
 
 .service-item {
   width: 100%;
@@ -32,7 +42,9 @@
   justify-content: space-between;
 }
 
-/* LEFT CONTENT */
+/* =========================================================
+   COMMON SERVICE CONTENT
+========================================================= */
 
 .service-content {
   width: 523px;
@@ -41,17 +53,16 @@
 
 .service-content h2 {
   margin: 0 0 25px;
-
   color: #2c2c2c;
   font-size: 42px;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .service-content p {
   margin: 0;
-
   color: #2c2c2c;
   font-size: 16px;
   font-family: "Rubik", sans-serif;
@@ -59,7 +70,9 @@
   line-height: 23.6px;
 }
 
-/* IMAGE */
+/* =========================================================
+   COMMON SERVICE IMAGE
+========================================================= */
 
 .service-image {
   width: 454px;
@@ -73,9 +86,242 @@
   object-fit: contain;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* =========================================================
+   SERVICES BACKGROUND
+========================================================= */
+
+.services-background {
+  position: absolute;
+  left: -20px;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services-background-right {
+  position: absolute;
+  right: -20px;
+  margin-top: 30rem;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+.services-background-1 {
+  position: absolute;
+  left: -20px;
+  margin-top: 50rem;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+.services-background-2 {
+  position: absolute;
+  right: -20px;
+  margin-top: 90rem;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+}
+/* =========================================================
+   COMMUNICATIONS
+========================================================= */
+
+.clients_span {
+  color: black;
+  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.communications_span {
+  color: #2c2c2c;
+  font-size: 42px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.communications {
+  width: 478px;
+  left: 657px;
+  top: 63px;
+  position: absolute;
+}
+
+.loremipsumdolorsitametconsecteturadipiscingelitfaucibusquamquisegestasorciscelerisqueeuvitaesapienpellentesqueetsitacfamesfacilisisnibhfaucibus_span {
+  color: #2c2c2c;
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  line-height: 26.55px;
+  word-wrap: break-word;
+}
+
+.lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-faucibus-quam-quis-egestas-orci-scelerisque-eu-vitae-sapien-pellentesque-et-sit-ac-fames-facilisis-nibh-faucibus {
+  width: 478px;
+  height: 111px;
+  left: 657px;
+  top: 133px;
+  position: absolute;
+}
+
+.coominucation-vector-1 {
+  width: 487px;
+  height: 251px;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.group-10 {
+  width: 1135px;
+  height: 251px;
+  position: relative;
+}
+
+/* =========================================================
+   FACILITATION
+========================================================= */
+
+.facilitation_span {
+  color: #2c2c2c;
+  font-size: 42px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.facilitation {
+  width: 279px;
+  left: 242px;
+  top: 70px;
+  position: absolute;
+}
+
+.welovewhatwedoandaredrivenbyachievinggreatresultsforourclientsourawardsandimpressiveclientlistaretestamenttoourhighqualityapproachwedelivervaluecreakvityresultsandexcepkonallevelsofcustomerserviceandprofessionalismwespecialiseininfrastructuredevelopmentenergyandnaturalresources_span {
+  color: #2c2c2c;
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  line-height: 23.6px;
+  word-wrap: break-word;
+}
+
+.we-love-what-we-do-and-are-driven-by-achieving-great-results-for-our-clients-our-awards-and-impressive-client-list-are-testament-to-our-high-quality-approach-we-deliver-value-creakvity-results-and-excepkonal-levels-of-customer-service-and-professionalism-we-specialise-in-infrastructure-development-energy-and-natural-resources {
+  width: 521px;
+  height: 139px;
+  left: 0;
+  top: 140px;
+  position: absolute;
+  text-align: right;
+}
+
+.facilation-vector-1 {
+  width: 481px;
+  height: 386px;
+  left: 679px;
+  top: 0;
+  position: absolute;
+}
+
+.group-9 {
+  width: 1160px;
+  height: 386px;
+  position: relative;
+}
+
+/* =========================================================
+   CONSULTATION & RESEARCH
+========================================================= */
+
+.consultationandresearch_span {
+  color: #2c2c2c;
+  font-size: 42px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.consultation-and-research {
+  left: 706px;
+  top: 120px;
+  position: absolute;
+}
+
+.loremipsumdolorsitametconsecteturadipiscingelitfaucibusquamquisegestasorciscelerisqueeuvitaesapienpellentesqueetsitacfamesfacilisisnibhfaucibus_span {
+  color: #2c2c2c;
+  font-size: 18px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  line-height: 26.55px;
+  word-wrap: break-word;
+}
+
+.consultation-and-research
+  + .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-faucibus-quam-quis-egestas-orci-scelerisque-eu-vitae-sapien-pellentesque-et-sit-ac-fames-facilisis-nibh-faucibus {
+  width: 454px;
+  height: 114px;
+  left: 706px;
+  top: 240px;
+  position: absolute;
+}
+
+.consultation-vector-1 {
+  width: 523px;
+  height: 363px;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.group-7 {
+  width: 1160px;
+  height: 363px;
+  position: relative;
+}
+
+/* =========================================================
+   TRAINING & MENTORING
+========================================================= */
+
+.traningmentoring_span {
+  color: #2c2c2c;
+  font-size: 42px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+.traning-mentoring {
+  width: 478px;
+  left: 42px;
+  top: 19px;
+  position: absolute;
+}
+
+.training-and-vector-1 {
+  width: 454px;
+  height: 349px;
+  left: 704px;
+  top: 0;
+  position: absolute;
+}
+
+.group-8 {
+  width: 1158px;
+  height: 349px;
+  position: relative;
+}
+
+/* =========================================================
+   MOBILE SUPPORT
+   Layout/order is NOT changed.
+========================================================= */
 
 @media (max-width: 900px) {
   .services-section {
@@ -90,6 +336,7 @@
     font-size: 42px;
   }
 
+  /* Keep original flex layout */
   .service-item {
     gap: 30px;
   }
@@ -112,11 +359,62 @@
     height: auto;
     aspect-ratio: 454 / 375;
   }
+
+  /* Keep absolute-positioned Figma layout,
+     but scale it to available width */
+
+  .group-10,
+  .group-9,
+  .group-7,
+  .group-8 {
+    max-width: 100%;
+  }
+
+  .communications {
+    width: 42%;
+    left: 58%;
+  }
+
+  .lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-faucibus-quam-quis-egestas-orci-scelerisque-eu-vitae-sapien-pellentesque-et-sit-ac-fames-facilisis-nibh-faucibus {
+    max-width: 42%;
+  }
+
+  .facilitation {
+    left: 21%;
+  }
+
+  .facilation-vector-1 {
+    left: 58%;
+    width: 42%;
+    height: auto;
+  }
+
+  .consultation-and-research {
+    left: 61%;
+    width: 39%;
+  }
+
+  .consultation-vector-1 {
+    width: 45%;
+    height: auto;
+  }
+
+  .traning-mentoring {
+    left: 4%;
+    width: 45%;
+  }
+
+  .training-and-vector-1 {
+    left: 61%;
+    width: 39%;
+    height: auto;
+  }
 }
 
-/* =========================
+/* =========================================================
    MOBILE
-========================= */
+   Keep visual order/layout, only resize.
+========================================================= */
 
 @media (max-width: 600px) {
   .services-section {
@@ -125,9 +423,6 @@
 
   .services-container {
     max-width: calc(100% - 40px);
-  }
-
-  .services-title {
   }
 
   .services-title span {
@@ -169,12 +464,75 @@
   .service-line .line {
     width: 180px;
   }
+
+  /*
+   * Figma groups:
+   * Keep their original positioning,
+   * but prevent horizontal overflow.
+   */
+
+  .group-10,
+  .group-9,
+  .group-7,
+  .group-8 {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .communications {
+    width: 45%;
+    left: 55%;
+  }
+
+  .facilitation {
+    width: 45%;
+    left: 5%;
+  }
+
+  .consultation-and-research {
+    width: 45%;
+    left: 55%;
+  }
+
+  .traning-mentoring {
+    width: 45%;
+    left: 5%;
+  }
+
+  .facilation-vector-1 {
+    width: 43%;
+    left: 57%;
+    height: auto;
+  }
+
+  .consultation-vector-1 {
+    width: 45%;
+    height: auto;
+  }
+
+  .training-and-vector-1 {
+    width: 43%;
+    left: 57%;
+    height: auto;
+  }
 }
-.services-background {
-  position: absolute;
-  top: -10rem;
-  left: -20px;
-  height: auto;
-  z-index: 0;
-  pointer-events: none;
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .services-title span {
+    font-size: 30px;
+  }
+
+  .service-content h2 {
+    font-size: 27px;
+  }
+
+  .service-content p {
+    font-size: 14px;
+    line-height: 21px;
+  }
 }

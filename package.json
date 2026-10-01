@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "pg": "^8.23.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
@@ -30,5 +33,18 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.69.0",
     "vite": "^8.3.0"
-  }
+  },
+  "description": "A demo React.js web project built to learn React fundamentals, component-based development, and responsive UI design using Tailwind CSS.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KunalChhatbarZignuts/react-web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KunalChhatbarZignuts/react-web/issues"
+  },
+  "homepage": "https://github.com/KunalChhatbarZignuts/react-web#readme"
 }
