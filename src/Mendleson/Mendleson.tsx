@@ -7,7 +7,22 @@ import "./Mendleson.css";
 import AboutSection from "./AboutSection";
 import Services from "./Services";
 import Footer from "./Footer";
+import { useQuery } from "@tanstack/react-query";
+import type { User } from "./user.type";
+import UserCard from "./userCard";
+
+const getUsersList = async (): Promise<User[]> => {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+
+  return response.json();
+};
+
 function Mendleson() {
+  const { data } = useQuery({
+    queryKey: ["getUer"],
+    queryFn: getUsersList,
+  });
+
   return (
     <div className="page-container">
       <div className="background">
@@ -19,7 +34,6 @@ function Mendleson() {
           className="background-image background-right"
         />
       </div>
-
       <header className="content-overlay">
         <img src={logo} alt="Logo" className="logo" />
 
@@ -72,6 +86,7 @@ function Mendleson() {
       <AboutSection />
 
       <Services />
+      <UserCard data={data ?? []} />
 
       {/* <section id="team" className="team-section" /> */}
 

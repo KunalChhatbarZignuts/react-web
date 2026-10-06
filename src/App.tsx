@@ -1,7 +1,12 @@
-import Mendleson from "./Mendleson/Mendleson";
-// import MendlesonAi from "./MendlesonAi/MendlesonAi";
+import React from "react";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { UseForm } from "./UseForms/UseForm";
+// import Mendleson from "./Mendleson/Mendleson";
 // import Tailwind from "./tailwind";
 // import useCount from "./useCount";
+
+const queryClient = new QueryClient();
 
 function App() {
   // const [count, list, increment, decrement] = useCount();
@@ -24,9 +29,12 @@ function App() {
   // };
 
   return (
-    <div>
-      <Mendleson />
-      {/* <div className="flex items-center gap-4 p-20 x-auto">
+    <React.StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <div>
+          <UseForm />
+          {/* <Mendleson /> */}
+          {/* <div className="flex items-center gap-4 p-20 x-auto">
         <button
           className="w-12 h-12 bg-blue-500 rounded-full text-white text-2xl"
           onClick={increment}
@@ -57,7 +65,9 @@ function App() {
         Click me
       </button>
       <Tailwind /> */}
-    </div>
+        </div>
+      </QueryClientProvider>
+    </React.StrictMode>
   );
 }
 
