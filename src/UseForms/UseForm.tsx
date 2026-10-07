@@ -56,7 +56,6 @@ export const UseForm = () => {
         <Stack
           spacing={2}
           sx={{
-            maxWidth: "50%",
             padding: 4,
             borderRadius: 5,
           }}
@@ -67,13 +66,16 @@ export const UseForm = () => {
               fontWeight: 300,
             }}
           >
-            Create Account #{renderCount.current}
+            Create Account Using useForm #{renderCount.current}
           </Typography>
 
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2,1fr)",
+              },
               gap: 2,
             }}
           >
