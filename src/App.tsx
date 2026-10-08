@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { UseForm } from "./UseForms/UseForm";
 import { Redux } from "./Redux/Redux";
@@ -9,80 +8,116 @@ import { couterReduxStore } from "./Redux/store";
 import { counterStore } from "./ReduxToolkit/stores/counterStore";
 import { ContextCouter } from "./Context/ContextCouter";
 import { CountProvider } from "./Context/Context";
-// import Mendleson from "./Mendleson/Mendleson";
-// import Tailwind from "./tailwind";
-// import useCount from "./useCount";
+import { LandingPage } from "./LandingPage";
+import Mendleson from "./Mendleson/Mendleson";
+import Tailwind from "./tailwind";
+import { Box, Button } from "@mui/material";
+import { ArrowBack } from "@mui/icons-material";
 
 const queryClient = new QueryClient();
 
+function NavigationWrapper({ children }: { children: React.ReactNode }) {
+  const handleHomeNavigate = (e: React.MouseEvent) => {
+    console.log(e);
+    window.history.pushState({}, "", "/");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+  };
+
+  return (
+    <Box>
+      <Box
+        sx={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          bgcolor: "background.paper",
+          boxShadow: 1,
+          px: 4,
+          py: 1.5,
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Button
+          variant="outlined"
+          startIcon={<ArrowBack />}
+          onClick={handleHomeNavigate}
+          sx={{ textTransform: "none", fontWeight: 600 }}
+        >
+          Back to Home
+        </Button>
+      </Box>
+      {children}
+    </Box>
+  );
+}
+
 function App() {
-  // const [count, list, increment, decrement] = useCount();
+  const [currentPath, setCurrentPath] = useState(
+    window.location.pathname || "/",
+  );
 
-  // const [message, setMessage] = useState(
-  //   "Hello This is The text befour the click",
-  // );
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname || "/");
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
 
-  // const [isStaetChanged, setIsStateChanged] = useState(false);
+  let content = <LandingPage />;
 
-  // const onClicked = () => {
-  //   if (!isStaetChanged) {
-  //     setIsStateChanged(true);
-
-  //     setMessage("This is the text after the click");
-  //   } else {
-  //     setIsStateChanged(false);
-  //     setMessage("Hello This is The text befour the click");
-  //   }
-  // };
+  if (currentPath === "/reduxtoolkit") {
+    content = (
+      <NavigationWrapper>
+        <Provider store={counterStore}>
+          <ReduxToolkit />
+        </Provider>
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/redux") {
+    content = (
+      <NavigationWrapper>
+        <Provider store={couterReduxStore}>
+          <Redux />
+        </Provider>
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/useform") {
+    content = (
+      <NavigationWrapper>
+        <UseForm />
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/context") {
+    content = (
+      <NavigationWrapper>
+        <CountProvider>
+          <ContextCouter />
+        </CountProvider>
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/mendleson") {
+    content = (
+      <NavigationWrapper>
+        <QueryClientProvider client={queryClient}>
+          <Mendleson />
+        </QueryClientProvider>
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/tailwind") {
+    content = (
+      <NavigationWrapper>
+        <Tailwind />
+      </NavigationWrapper>
+    );
+  }
 
   return (
     <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <div>
-          <UseForm />
-          <Provider store={couterReduxStore}>
-            <Redux />
-          </Provider>
-          <Provider store={counterStore}>
-            <ReduxToolkit />
-          </Provider>
-          <CountProvider>
-            <ContextCouter />
-          </CountProvider>
-          {/* <Mendleson / > */}
-          {/* <div className="flex items-center gap-4 p-20 x-auto">
-        <button
-          className="w-12 h-12 bg-blue-500 rounded-full text-white text-2xl"
-          onClick={increment}
-        >
-          +
-        </button>
-
-        <p className="text-3xl p-10">{count}</p>
-
-        <button
-          className="w-12 h-12 bg-blue-500 rounded-full text-white text-2xl"
-          onClick={decrement}
-        >
-          -
-        </button>
-      </div>
-      <div className="flex items-center gap-4 p-20 x-auto">
-        {list.map((item, index) => {
-          return <p key={index}>{item}</p>;
-        })}
-      </div>
-      <p className="[-20 text-xl">{message}</p>
-
-      <button
-        className="bg-blue-400 text-white font-bold  pl-20 pr-20"
-        onClick={onClicked}
-      >
-        Click me
-      </button>
-      <Tailwind /> */}
-        </div>
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{content}</QueryClientProvider>
     </React.StrictMode>
   );
 }

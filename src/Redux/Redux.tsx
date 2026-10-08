@@ -4,9 +4,9 @@ import {
   RemoveCircleOutlineOutlined,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-
+import type { RootState } from "./store";
 export const Redux = () => {
-  const count = useSelector((state: any) => state.count);
+  const count = useSelector((state: RootState) => state.count.count);
   const dispatch = useDispatch();
 
   return (
@@ -31,9 +31,7 @@ export const Redux = () => {
       >
         <Typography
           variant="h5"
-          fontWeight={600}
-          sx={{ textAlign: "center" }}
-          mb={3}
+          sx={{ textAlign: "center", fontWeight: 600, mb: 3 }}
         >
           Redux Counter
         </Typography>
@@ -68,11 +66,11 @@ export const Redux = () => {
 
           <Typography
             variant="h3"
-            fontWeight={700}
             sx={{
               minWidth: 70,
               textAlign: "center",
               color: "primary.main",
+              fontWeight: 700,
             }}
           >
             {count}

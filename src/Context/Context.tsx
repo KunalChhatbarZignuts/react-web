@@ -48,6 +48,7 @@ export const CountProvider = ({ children }: CountProviderProps) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCounter = () => {
   const context = useContext(contextCount);
 
