@@ -4,7 +4,7 @@ import { UseForm } from "./UseForms/UseForm";
 import { Redux } from "./Redux/Redux";
 import { ReduxToolkit } from "./ReduxToolkit/ReduxToolkit";
 import { Provider } from "react-redux";
-import { couterReduxStore } from "./Redux/store";
+import { store } from "./Redux/store";
 import { counterStore } from "./ReduxToolkit/stores/counterStore";
 import { ContextCouter } from "./Context/ContextCouter";
 import { CountProvider } from "./Context/Context";
@@ -13,14 +13,14 @@ import Mendleson from "./Mendleson/Mendleson";
 import Tailwind from "./tailwind";
 import { Box, Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
+import { ZustandCount } from "./Zustand/ZustandCount";
 
 const queryClient = new QueryClient();
 
 function NavigationWrapper({ children }: { children: React.ReactNode }) {
   const handleHomeNavigate = (e: React.MouseEvent) => {
-    console.log(e);
-    window.history.pushState({}, "", "/");
-    window.dispatchEvent(new PopStateEvent("popstate"));
+    e.preventDefault();
+    window.history.back();
   };
 
   return (
@@ -80,7 +80,7 @@ function App() {
   } else if (currentPath === "/redux") {
     content = (
       <NavigationWrapper>
-        <Provider store={couterReduxStore}>
+        <Provider store={store}>
           <Redux />
         </Provider>
       </NavigationWrapper>
@@ -113,8 +113,13 @@ function App() {
         <Tailwind />
       </NavigationWrapper>
     );
+  } else if (currentPath === "/zustand") {
+    content = (
+      <NavigationWrapper>
+        <ZustandCount />
+      </NavigationWrapper>
+    );
   }
-
   return (
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>{content}</QueryClientProvider>

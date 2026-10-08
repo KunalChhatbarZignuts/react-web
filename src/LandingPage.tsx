@@ -7,6 +7,7 @@ import {
   Layers,
   Web,
   Palette,
+  Menu,
 } from "@mui/icons-material";
 
 interface ComponentItem {
@@ -65,6 +66,14 @@ const componentsList: ComponentItem[] = [
       "Showcase of Tailwind CSS utilities, responsive grids, flex, and dark mode.",
     path: "/tailwind",
     icon: <Palette sx={{ color: "purple" }} fontSize="large" />,
+  },
+  {
+    id: "zustand",
+    name: "Zustand",
+    description:
+      "Learn Zustand state management by creating a simple counter with a centralized store and actions.",
+    path: "/zustand",
+    icon: <Menu />,
   },
 ];
 
