@@ -1,20 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { UseForm } from "./UseForms/UseForm";
-import { Redux } from "./Redux/Redux";
-import { ReduxToolkit } from "./ReduxToolkit/ReduxToolkit";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 import { counterStore } from "./ReduxToolkit/stores/counterStore";
-import { ContextCouter } from "./Context/ContextCouter";
 import { CountProvider } from "./Context/Context";
-import { LandingPage } from "./LandingPage";
-import Mendleson from "./Mendleson/Mendleson";
-import Tailwind from "./tailwind";
-import { Box, Button } from "@mui/material";
-import { ArrowBack } from "@mui/icons-material";
-import { ZustandCount } from "./Zustand/ZustandCount";
-import { AxiosApi } from "./Axios/AxiosApi";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import ArrowBack from "@mui/icons-material/ArrowBack";
+import CircularProgress from "@mui/material/CircularProgress";
+
+const UseForm = lazy(() =>
+  import("./UseForms/UseForm").then((m) => ({ default: m.UseForm })),
+);
+const Redux = lazy(() =>
+  import("./Redux/Redux").then((m) => ({ default: m.Redux })),
+);
+const ReduxToolkit = lazy(() =>
+  import("./ReduxToolkit/ReduxToolkit").then((m) => ({
+    default: m.ReduxToolkit,
+  })),
+);
+const ContextCouter = lazy(() =>
+  import("./Context/ContextCouter").then((m) => ({ default: m.ContextCouter })),
+);
+const LandingPage = lazy(() =>
+  import("./LandingPage").then((m) => ({ default: m.LandingPage })),
+);
+const Mendleson = lazy(() => import("./Mendleson/Mendleson"));
+const Tailwind = lazy(() => import("./tailwind"));
+const ZustandCount = lazy(() =>
+  import("./Zustand/ZustandCount").then((m) => ({ default: m.ZustandCount })),
+);
+const AxiosApi = lazy(() =>
+  import("./Axios/AxiosApi").then((m) => ({ default: m.AxiosApi })),
+);
+
+const FirebaseTest = lazy(() =>
+  import("./firebase/FirebaseTest").then((m) => ({ default: m.FirebaseTest })),
+);
 
 const queryClient = new QueryClient();
 
@@ -48,7 +71,15 @@ function NavigationWrapper({ children }: { children: React.ReactNode }) {
           Back to Home
         </Button>
       </Box>
-      {children}
+      <Suspense
+        fallback={
+          <Box sx={{ display: "flex", justifyContent: "center", p: 4 }}>
+            <CircularProgress />
+          </Box>
+        }
+      >
+        {children}
+      </Suspense>
     </Box>
   );
 }
@@ -68,7 +99,17 @@ function App() {
     };
   }, []);
 
-  let content = <LandingPage />;
+  let content = (
+    <Suspense
+      fallback={
+        <Box sx={{ display: "flex", justifyContent: "center", p: 4 }}>
+          <CircularProgress />
+        </Box>
+      }
+    >
+      <LandingPage />
+    </Suspense>
+  );
 
   if (currentPath === "/reduxtoolkit") {
     content = (
@@ -126,11 +167,15 @@ function App() {
         <AxiosApi />
       </NavigationWrapper>
     );
+  } else if (currentPath === "/firebase") {
+    content = (
+      <NavigationWrapper>
+        <FirebaseTest />
+      </NavigationWrapper>
+    );
   }
   return (
-    // <React.StrictMode>
     <QueryClientProvider client={queryClient}>{content}</QueryClientProvider>
-    // </React.StrictMode>
   );
 }
 

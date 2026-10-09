@@ -1,47 +1,17 @@
-import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
-import type { User } from "../type/user.types";
-
-import { getUserList } from "../api/userApi";
+import Box from "@mui/material/Box";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { getPhotos, getUserList } from "../api/userApi";
 
 export const Users = () => {
-  const [userList, setUserList] = useState<User[] | undefined>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const { data: userList } = useSuspenseQuery({
+    queryKey: ["users"],
+    queryFn: () => getUserList(),
+  });
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        setIsLoading(true);
-        setError("");
-        const data = await getUserList();
-        setUserList(data);
-      } catch (error) {
-        setIsLoading(false);
-        console.log(error);
-        setError(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    fetchUsers();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <Box>
-        <div>Loadding...</div>
-      </Box>
-    );
-  }
-
-  if (error) {
-    return (
-      <Box>
-        <div>Loadding...</div>
-      </Box>
-    );
-  }
+  // const { data: photo } = useSuspenseQuery({
+  //   queryKey: ["photos"],
+  //   queryFn: getPhotos,
+  // });
 
   return (
     <Box>
@@ -53,6 +23,13 @@ export const Users = () => {
           </div>
         );
       })}
+      {/* {photo.map((img) => {
+        return (
+          <div key={img.id}>
+            <img src={img.url} />
+          </div>
+        );
+      })} */}
     </Box>
   );
 };

@@ -9,6 +9,7 @@ import {
   Palette,
   Menu,
   Api,
+  WhatshotSharp,
 } from "@mui/icons-material";
 
 interface ComponentItem {
@@ -80,9 +81,17 @@ const componentsList: ComponentItem[] = [
     id: "axios",
     name: "Axios",
     description:
-      "Learn Axios API integration in React by making GET, POST, PUT, and DELETE requests with reusable API services, error handling, and loading states.",
+      "Learn Axios API integration in React by making GET, POST, PUT, and DELETE requests with reusable API services, error handling, and loading states. ",
     path: "/axios",
     icon: <Api />,
+  },
+  {
+    id: "firebase",
+    name: "Firebase",
+    description:
+      "Learn Firebase integration in React with Firebase Authentication, Cloud Firestore, and CRUD operations using reusable services, error handling, and loading states.",
+    path: "/firebase",
+    icon: <WhatshotSharp />,
   },
 ];
 
@@ -96,13 +105,11 @@ export const LandingPage = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
-        bgcolor: "#f8fafc",
-        py: 8,
+        py: 0,
         px: { xs: 2, sm: 4, md: 8 },
       }}
     >
-      <Box sx={{ maxWidth: 1200, mx: "auto", mb: 6, textAlign: "center" }}>
+      <Box sx={{ mb: 6, textAlign: "center" }}>
         <Typography
           variant="h3"
           component="h1"
@@ -122,8 +129,6 @@ export const LandingPage = () => {
 
       <Box
         sx={{
-          maxWidth: 1200,
-          mx: "auto",
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",

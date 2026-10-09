@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   TextField,
   InputAdornment,
@@ -10,6 +10,14 @@ import {
 } from "@mui/material";
 import { Visibility } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@mui/material";
 
 interface InputType {
   username: string;
@@ -21,7 +29,10 @@ interface InputType {
 
 export const UseForm = () => {
   const renderCount = useRef(0);
-  renderCount.current += 1;
+
+  useEffect(() => {
+    renderCount.current += 1;
+  });
 
   console.log("Form render:", renderCount.current);
 
@@ -35,7 +46,7 @@ export const UseForm = () => {
       name: "",
     },
   });
-
+  const [dialogOpen, setDialogOpen] = useState(false);
   const onFormSubmit = (data: InputType) => {
     console.log(data);
   };
@@ -66,7 +77,7 @@ export const UseForm = () => {
               fontWeight: 300,
             }}
           >
-            Create Account Using useForm #{renderCount.current}
+            Create Account Using useForm #{renderCount.current ?? ""}
           </Typography>
 
           <Box
@@ -131,8 +142,53 @@ export const UseForm = () => {
           >
             Create Account
           </Button>
+
+          <Button
+            type="button"
+            variant="outlined"
+            onClick={() => setDialogOpen(true)}
+          >
+            Open Dialog
+          </Button>
+
+          <DialogExample
+            open={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+          />
         </Stack>
       </Box>
     </form>
+  );
+};
+
+interface DialogExampleProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export const DialogExample = ({ open, onClose }: DialogExampleProps) => {
+  const handleConfirm = () => {
+    console.log("Action confirmed");
+    onClose();
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} sx={{}}>
+      <DialogTitle>Confirm Action</DialogTitle>
+
+      <DialogContent>
+        <DialogContentText>
+          Are you sure you want to continue?
+        </DialogContentText>
+      </DialogContent>
+
+      <DialogActions>
+        <Button onClick={onClose}>Cancel</Button>
+
+        <Button onClick={handleConfirm} variant="contained">
+          Confirm
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
