@@ -8,6 +8,7 @@ import {
   Web,
   Palette,
   Menu,
+  Api,
 } from "@mui/icons-material";
 
 interface ComponentItem {
@@ -74,6 +75,14 @@ const componentsList: ComponentItem[] = [
       "Learn Zustand state management by creating a simple counter with a centralized store and actions.",
     path: "/zustand",
     icon: <Menu />,
+  },
+  {
+    id: "axios",
+    name: "Axios",
+    description:
+      "Learn Axios API integration in React by making GET, POST, PUT, and DELETE requests with reusable API services, error handling, and loading states.",
+    path: "/axios",
+    icon: <Api />,
   },
 ];
 

@@ -14,6 +14,7 @@ import Tailwind from "./tailwind";
 import { Box, Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { ZustandCount } from "./Zustand/ZustandCount";
+import { AxiosApi } from "./Axios/AxiosApi";
 
 const queryClient = new QueryClient();
 
@@ -117,6 +118,12 @@ function App() {
     content = (
       <NavigationWrapper>
         <ZustandCount />
+      </NavigationWrapper>
+    );
+  } else if (currentPath === "/axios") {
+    content = (
+      <NavigationWrapper>
+        <AxiosApi />
       </NavigationWrapper>
     );
   }
