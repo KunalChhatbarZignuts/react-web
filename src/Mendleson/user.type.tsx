@@ -28,8 +28,8 @@ export interface Geo {
 //   bs: string;
 // }
 
-export Type Company = {
- name: string;
+export interface Company {
+  name: string;
   catchPhrase: string;
   bs: string;
 }

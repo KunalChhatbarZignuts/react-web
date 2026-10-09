@@ -6,3 +6,7 @@ export const counterStore = configureStore({
     counter: counterReducer,
   },
 });
+
+export type RootState = ReturnType<typeof counterStore.getState>;
+export type AppDispatch = typeof counterStore.dispatch;
+

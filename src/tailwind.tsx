@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Tailwind() {
   console.log("Tailwind rendered");
@@ -9,7 +9,7 @@ function Tailwind() {
       className={
         isDark
           ? "min-h-screen bg-gray-900 text-white p-10"
-          : "min-h-screen bg-gray-100 text-gray-900 p-10"
+          : "min-h-screen bg-white text-gray-900 p-2"
       }
     >
       {/* Header */}
@@ -32,7 +32,7 @@ function Tailwind() {
       {/* Container */}
       <div className="max-w-7xl mx-auto">
         {/* Typography */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className="rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Typography</h2>
 
           <p className="text-sm text-gray-500 mb-2">Small text</p>
@@ -47,7 +47,7 @@ function Tailwind() {
         </section>
 
         {/* Colors */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Colors</h2>
 
           <div className="flex flex-wrap gap-4">
@@ -70,7 +70,7 @@ function Tailwind() {
         </section>
 
         {/* Flex */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Flexbox</h2>
 
           <div className="flex items-center justify-between gap-4">
@@ -85,7 +85,7 @@ function Tailwind() {
         </section>
 
         {/* Grid */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Grid</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -100,7 +100,7 @@ function Tailwind() {
         </section>
 
         {/* Buttons */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Buttons</h2>
 
           <div className="flex flex-wrap gap-4">
@@ -131,7 +131,7 @@ function Tailwind() {
         </section>
 
         {/* Form */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Form</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -171,7 +171,7 @@ function Tailwind() {
           <h2 className="text-2xl font-bold mb-4">Cards</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
+            <div className=" rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
               <h3 className="text-xl font-bold mb-2">Card One</h3>
 
               <p className="text-gray-500 mb-4">
@@ -183,7 +183,7 @@ function Tailwind() {
               </button>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
+            <div className=" rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
               <h3 className="text-xl font-bold mb-2">Card Two</h3>
 
               <p className="text-gray-500 mb-4">Hover over this card.</p>
@@ -193,7 +193,7 @@ function Tailwind() {
               </button>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
+            <div className=" rounded-2xl shadow-md p-6 hover:shadow-xl hover:-translate-y-1 transition">
               <h3 className="text-xl font-bold mb-2">Card Three</h3>
 
               <p className="text-gray-500 mb-4">Responsive cards using Grid.</p>
@@ -206,7 +206,7 @@ function Tailwind() {
         </section>
 
         {/* Spacing */}
-        <section className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <section className=" rounded-xl shadow-lg p-6 mb-8">
           <h2 className="text-2xl font-bold mb-4">Spacing</h2>
 
           <div className="space-y-4">
@@ -218,7 +218,7 @@ function Tailwind() {
         </section>
 
         {/* Responsive */}
-        <section className="bg-white rounded-xl shadow-lg p-6">
+        <section className=" rounded-xl shadow-lg p-6">
           <h2 className="text-2xl font-bold mb-4">Responsive Design</h2>
 
           <div className="bg-red-500 md:bg-green-500 lg:bg-blue-500 text-white p-6 rounded-lg text-center">

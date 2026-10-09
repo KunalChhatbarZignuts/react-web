@@ -121,9 +121,9 @@ function App() {
     );
   }
   return (
-    <React.StrictMode>
-      <QueryClientProvider client={queryClient}>{content}</QueryClientProvider>
-    </React.StrictMode>
+    // <React.StrictMode>
+    <QueryClientProvider client={queryClient}>{content}</QueryClientProvider>
+    // </React.StrictMode>
   );
 }
 

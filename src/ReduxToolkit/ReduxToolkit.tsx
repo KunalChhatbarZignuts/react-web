@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import {
   AddCircleOutlineOutlined,
@@ -12,6 +11,7 @@ export const ReduxToolkit = () => {
   const count = useSelector((state: RootState) => state.counter.count);
 
   const dispatch = useDispatch<AppDispatch>();
+
   return (
     <Box
       sx={{
@@ -21,6 +21,11 @@ export const ReduxToolkit = () => {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#f5f6fa",
+        width: "30%",
+        borderRadius: 4,
+        boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+        padding: 10,
+        flexDirection: "column",
       }}
     >
       <Box
@@ -34,11 +39,11 @@ export const ReduxToolkit = () => {
       >
         <Typography
           variant="h5"
-          fontWeight={600}
           sx={{
             textAlign: "center",
+            fontWeight: 600,
+            mb: 3,
           }}
-          mb={3}
         >
           Redux Toolkit Counter
         </Typography>
@@ -73,11 +78,11 @@ export const ReduxToolkit = () => {
 
           <Typography
             variant="h3"
-            fontWeight={700}
             sx={{
               minWidth: 70,
               textAlign: "center",
               color: "primary.main",
+              fontWeight: 700,
             }}
           >
             {count}

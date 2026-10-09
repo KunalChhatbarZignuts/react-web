@@ -1,4 +1,3 @@
-import React from "react";
 import type { User } from "./user.type";
 interface UserCardProps {
   data: User[];
