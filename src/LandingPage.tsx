@@ -10,6 +10,7 @@ import {
   Menu,
   Api,
   WhatshotSharp,
+  Webhook,
 } from "@mui/icons-material";
 
 interface ComponentItem {
@@ -92,6 +93,15 @@ const componentsList: ComponentItem[] = [
       "Learn Firebase integration in React with Firebase Authentication, Cloud Firestore, and CRUD operations using reusable services, error handling, and loading states.",
     path: "/firebase",
     icon: <WhatshotSharp />,
+  },
+
+  {
+    id: "hooks",
+    name: "React Hooks",
+    description:
+      "Learn React Hooks such as useState, useEffect, useMemo, useCallback, useRef, useContext, and useReducer with practical examples, state management, side effects, and performance optimization.",
+    path: "/hooks",
+    icon: <Webhook />,
   },
 ];
 

@@ -21,7 +21,6 @@ export const ReduxToolkit = () => {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#f5f6fa",
-        width: "30%",
         borderRadius: 4,
         boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
         padding: 10,

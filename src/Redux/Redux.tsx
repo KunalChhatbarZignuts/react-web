@@ -5,6 +5,7 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "./store";
+
 export const Redux = () => {
   const count = useSelector((state: RootState) => state.count.count);
   const dispatch = useDispatch();
