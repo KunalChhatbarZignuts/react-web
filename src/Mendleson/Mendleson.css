@@ -1,17 +1,9 @@
-/* =========================================================
-   PAGE CONTAINER
-========================================================= */
-
 .page-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
 }
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
 
 .background {
   position: absolute;
@@ -35,10 +27,6 @@
   right: 0;
   height: auto;
 }
-
-/* =========================================================
-   HEADER
-========================================================= */
 
 .content-overlay {
   position: relative;
@@ -82,10 +70,6 @@
   color: #f15a29;
 }
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
-
 .services-section,
 .team-section,
 .projects-section,
@@ -96,10 +80,6 @@
   min-height: 70vh;
   box-sizing: border-box;
 }
-
-/* =========================================================
-   HOME
-========================================================= */
 
 .home-section {
   position: relative;
@@ -148,10 +128,6 @@
   word-wrap: break-word;
 }
 
-/* =========================================================
-   HOME BOTTOM ASSETS
-========================================================= */
-
 .home-asset-bottom-right {
   position: absolute;
   right: 0;
@@ -174,20 +150,11 @@
   pointer-events: none;
 }
 
-/* =========================================================
-   MOBILE
-   Below 768px
-========================================================= */
-
 @media (max-width: 767px) {
   .page-container {
     min-height: 100vh;
     overflow-x: hidden;
   }
-
-  /* -----------------------------------------
-     Header
-  ----------------------------------------- */
 
   .content-overlay {
     position: relative;
@@ -216,10 +183,6 @@
   .navigation-items a {
     font-size: 14px;
   }
-
-  /* -----------------------------------------
-     Home
-  ----------------------------------------- */
 
   .home-section {
     min-height: 100vh;
@@ -255,8 +218,6 @@
     font-size: 16px;
     line-height: 1.5;
   }
-
-  /* Bottom assets */
 
   .home-asset-bottom-right {
     width: 45vw;

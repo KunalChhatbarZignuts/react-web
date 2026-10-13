@@ -11,7 +11,6 @@ import Button from "@mui/material/Button";
 import CircularProgress from "@mui/material/CircularProgress";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 
-// Lazy-loaded components
 const LandingPage = lazy(() =>
   import("./LandingPage").then((m) => ({
     default: m.LandingPage,

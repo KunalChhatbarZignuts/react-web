@@ -1,11 +1,6 @@
-import { createContext, useContext } from "react";
+import { useContext } from "react";
 import { Button, Stack } from "@mui/material";
-import type { ThemeContextType } from "./Hooks.type";
-
-const ThemeContext = createContext<ThemeContextType>({
-  theme: "light",
-  setTheme: () => {},
-});
+import { ThemeContext } from "./Hooks.type";
 
 export function ThemeConsumerComponent() {
   const { theme, setTheme } = useContext(ThemeContext); // 6. useContext
