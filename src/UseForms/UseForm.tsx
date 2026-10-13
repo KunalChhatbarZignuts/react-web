@@ -96,8 +96,8 @@ export const UseForm = () => {
               {...register("username", {
                 required: "Enter User Name",
               })}
-              // error={!!errors.username}
-              // helperText={errors.username?.message}
+            // error={!!errors.username}
+            // helperText={errors.username?.message}
             />
 
             <TextField label="Name" {...register("name")} />

@@ -1,3 +1,4 @@
+import type { MessagePayload } from "firebase/messaging";
 import z from "zod";
 
 export const loginSchema = z.object({
@@ -16,3 +17,13 @@ export const loginSchema = z.object({
 });
 
 export type loginFormData = z.infer<typeof loginSchema>;
+
+
+export interface UseFirebaseMessagingReturn {
+  token: string;
+  notification: MessagePayload | undefined;
+  error: string;
+  loading: boolean;
+  permission: NotificationPermission;
+  enableNotification: (customVapidKey?: string) => Promise<string | null>;
+}

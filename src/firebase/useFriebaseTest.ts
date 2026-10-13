@@ -13,6 +13,9 @@ import { auth } from "./firebaseConfig";
 export const useFriebaseTest = () => {
   const [authError, setAuthError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+
+  const [isShowPassword, setIsShowPassword] = useState(true);
+
   const {
     register,
     handleSubmit,
@@ -156,5 +159,6 @@ export const useFriebaseTest = () => {
     isSubmitting,
     onFormSubmit,
     handleGoogleLogin,
+    isShowPassword, setIsShowPassword
   };
 };

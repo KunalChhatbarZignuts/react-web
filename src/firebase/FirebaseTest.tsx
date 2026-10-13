@@ -10,12 +10,12 @@ import {
   InputAdornment,
   Alert,
   CircularProgress,
+  IconButton,
 } from "@mui/material";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LocalFireDepartmentOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined";
 import { useFriebaseTest } from "./useFriebaseTest";
-import { Google } from "@mui/icons-material";
+import { Google, Visibility, VisibilityOff } from "@mui/icons-material";
 import { useFirebaseMessaging } from "./useFirebaseMessaging";
 
 export const FirebaseTest = () => {
@@ -28,13 +28,11 @@ export const FirebaseTest = () => {
     isSubmitting,
     onFormSubmit,
     handleGoogleLogin,
+    isShowPassword,
+    setIsShowPassword
   } = useFriebaseTest();
   const {
     token,
-    notification,
-    error: messagingError,
-    loading: messagingLoading,
-    permission,
     enableNotification,
   } = useFirebaseMessaging();
 
@@ -42,10 +40,11 @@ export const FirebaseTest = () => {
     console.log("Firebase connected:", app.name);
     console.log("Firebase project:", app.options.projectId);
     console.log("Firebase appId:", app.options.appId);
+    enableNotification()
     if (token) {
       console.log("FCM Registration Token:", token);
     }
-  }, [token]);
+  },);
 
   return (
     <Box
@@ -126,27 +125,6 @@ export const FirebaseTest = () => {
               </Alert>
             )}
 
-            {notification && (
-              <Alert severity="info" sx={{ borderRadius: 2 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                  {(notification.notification?.title as string) ||
-                    (notification.data?.title as string) ||
-                    "Notification Received"}
-                </Typography>
-                <Typography variant="body2">
-                  {(notification.notification?.body as string) ||
-                    (notification.data?.body as string) ||
-                    ""}
-                </Typography>
-              </Alert>
-            )}
-
-            {messagingError && (
-              <Alert severity="warning" sx={{ borderRadius: 2 }}>
-                {messagingError}
-              </Alert>
-            )}
-
             <Stack spacing={2}>
               <TextField
                 {...register("email")}
@@ -179,7 +157,7 @@ export const FirebaseTest = () => {
                 {...register("password")}
                 id="password"
                 label="Password"
-                type="password"
+                type={isShowPassword ? "password" : "text"}
                 fullWidth
                 autoComplete="current-password"
                 placeholder="Enter your password"
@@ -189,7 +167,17 @@ export const FirebaseTest = () => {
                   input: {
                     endAdornment: (
                       <InputAdornment position="start">
-                        <LockOutlinedIcon color="action" />
+                        <IconButton
+                          sx={{
+                            padding: 0
+                          }}
+                          onClick={() => setIsShowPassword((pov) => !pov)}
+                        >
+                          {
+                            isShowPassword ? <Visibility /> : <VisibilityOff />
+                          }
+
+                        </IconButton>
                       </InputAdornment>
                     ),
                   },
@@ -234,7 +222,6 @@ export const FirebaseTest = () => {
                 "Login"
               )}
             </Button>
-
             <Button
               variant="outlined"
               fullWidth
@@ -259,20 +246,6 @@ export const FirebaseTest = () => {
             >
               Sign in with Google
             </Button>
-
-            {permission !== "granted" && (
-              <Button
-                variant="text"
-                fullWidth
-                disabled={messagingLoading}
-                onClick={() => enableNotification()}
-                sx={{ textTransform: "none", fontWeight: 600 }}
-              >
-                {messagingLoading
-                  ? "Enabling Notifications..."
-                  : "Enable Push Notifications"}
-              </Button>
-            )}
           </Stack>
         </Box>
       </Card>
